@@ -308,19 +308,38 @@ export default class SearchMenu extends Component {
         searchContext: this.searchContext,
       });
 
+      let externalSearch = await fetch(
+        "https://woogle.wooverheid.nl/search?q=klimaat&page=1&country=nl&infobox=true"
+      );
+      let externalSearchJson = await externalSearch.json();
+
       this._activeSearch
         .then((results) => {
           // we ensure the current search term is the one used
           // when starting the query
           if (results) {
+            console.log("HIER ZIJN DE RESULTS", results);
+            console.log("HIER ZIJN DE EXTERNAL RESULTS", externalSearchJson);
             if (this.searchContext) {
               this.appEvents.trigger("post-stream:refresh", {
                 force: true,
               });
             }
 
+            results.resultTypes = [
+              ...results.resultTypes,
+              {
+                componentName: "search-result-external",
+                results: externalSearchJson["hits"],
+                type: "topic",
+              },
+            ];
+
             this.search.noResults = results.resultTypes.length === 0;
+
             this.search.results = results;
+
+            console.log(this.search.results);
           }
         })
         .catch(popupAjaxError)

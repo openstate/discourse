@@ -30,7 +30,8 @@ import { i18n } from "discourse-i18n";
 export const SEARCH_TYPE_DEFAULT = "topics_posts";
 export const SEARCH_TYPE_CATS_TAGS = "categories_tags";
 export const SEARCH_TYPE_USERS = "users";
-
+export const SEARCH_TYPE_DOCUMENTS = "documents";
+//todo
 const PAGE_LIMIT = 10;
 
 const customSearchTypes = [];
@@ -92,6 +93,7 @@ export default class FullPageSearchController extends Controller {
 
     const searchTypes = [
       { name: i18n("search.type.default"), id: SEARCH_TYPE_DEFAULT },
+      { name: "Overheidsinformatie", id: SEARCH_TYPE_DOCUMENTS },
       {
         name: this.siteSettings.tagging_enabled
           ? i18n("search.type.categories_and_tags")
@@ -271,18 +273,23 @@ export default class FullPageSearchController extends Controller {
     return i18n("search.result_count", { count, plus, term });
   }
 
-  @observes("model.{posts,categories,tags,users}.length", "searchResultPosts")
+  @observes(
+    "model.{posts,documents,categories,tags,users}.length",
+    "searchResultPosts"
+  )
   resultCountChanged() {
     if (!this.model.posts) {
       return 0;
     }
+    console.log(this.model.documents);
 
     this.set(
       "resultCount",
       this.searchResultPosts.length +
         this.model.categories.length +
         this.model.tags.length +
-        this.model.users.length
+        this.model.users.length +
+        this.model.documents?.length
     );
   }
 
@@ -418,6 +425,25 @@ export default class FullPageSearchController extends Controller {
             this.setProperties({
               searching: false,
               loading: false,
+            });
+          });
+        break;
+      case SEARCH_TYPE_DOCUMENTS:
+        fetch(
+          `https://woogle.wooverheid.nl/search?q=${searchTerm}&page=1&country=nl&infobox=true`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            const model = data.hits;
+            this.model.set("documents", model);
+          })
+          .finally(() => {
+            this.setProperties({
+              searching: false,
+              loading: false,
+            });
+            this.appEvents.trigger("search:search_result_view", {
+              page: args.page,
             });
           });
         break;

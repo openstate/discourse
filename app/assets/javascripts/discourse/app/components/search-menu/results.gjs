@@ -11,6 +11,7 @@ import MoreLink from "discourse/components/search-menu/results/more-link";
 import Types from "discourse/components/search-menu/results/types";
 import { i18n } from "discourse-i18n";
 import CategoryViewComponent from "./results/type/category";
+import ExternalViewComponent from "./results/type/external";
 import GroupViewComponent from "./results/type/group";
 import PostViewComponent from "./results/type/post";
 import TagViewComponent from "./results/type/tag";
@@ -24,6 +25,7 @@ const SEARCH_RESULTS_COMPONENT_TYPE = {
   "search-result-user": UserViewComponent,
   "search-result-tag": TagViewComponent,
   "search-result-group": GroupViewComponent,
+  "search-result-external": ExternalViewComponent,
 };
 
 export default class Results extends Component {
@@ -44,6 +46,7 @@ export default class Results extends Component {
   }
 
   get resultTypesWithComponent() {
+    console.log("komen we hier?");
     let content = [];
     this.search.results.resultTypes?.map((resultType) => {
       content.push({

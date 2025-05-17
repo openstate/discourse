@@ -21,6 +21,8 @@ import formatDate from "discourse/helpers/format-date";
 import { wantsNewWindow } from "discourse/lib/intercept-click";
 import { logSearchLinkClick } from "discourse/lib/search";
 
+//todo
+
 @tagName("div")
 @classNames("fps-result")
 @classNameBindings("bulkSelectEnabled")

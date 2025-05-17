@@ -22,6 +22,31 @@ import loadingSpinner from "discourse/helpers/loading-spinner";
 import { i18n } from "discourse-i18n";
 import ComboBox from "select-kit/components/combo-box";
 
+function stringToBrightColor(str) {
+  const colors = [
+    "#FF6347", // Tomato
+    "#FFD700", // Gold
+    "#ADFF2F", // GreenYellow
+    "#00FFFF", // Cyan
+    "#FF00FF", // Magenta
+    "#FFA500", // Orange
+    "#DA70D6", // Orchid
+    "#7CFC00", // LawnGreen
+    "#00BFFF", // DeepSkyBlue
+    "#FF69B4", // HotPink
+  ];
+
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    hash = hash & hash; // Convert to 32bit integer
+  }
+
+  const index = Math.abs(hash) % colors.length;
+  return colors[index];
+}
+
+//todo
 export default RouteTemplate(
   <template>
     {{#if @controller.loading}}
@@ -338,6 +363,83 @@ export default RouteTemplate(
                           </UserLink>
                         {{/each}}
                       </div>
+                    {{/if}}
+
+                    <style>
+                      .osf-topic {
+                        margin-bottom: 2rem;
+                      }
+
+                      .osf-topic a {
+                        color: inherit;
+                      }
+
+                      .osf-publisher-name {
+                        background-color: #25aae2;
+                        border-radius: 1em;
+                        padding-inline: 0.75em;
+                        padding-block: 0.1em;
+                        width: max-content;
+                        font-size: 0.8em;
+                        color: white;
+                      }
+
+                      .osf-description {
+                        font-size: var(--font-0);
+                        line-height: var(--line-height-large);
+                        color: var(--primary-medium);
+                        margin-block: 0.5rem;
+                      }
+
+                      .osf-description em {
+                        font-weight: 600;
+                      }
+
+                      .osf-title {
+                        font-size: var(--font-up-1);
+                        line-height: var(--line-height-medium);
+                        color: var(--primary);
+                        margin-block: 0.5rem;
+                      }
+
+                      .osf-badge {
+                        display: flex;
+                        align-items: center;
+                        gap: 0.25rem;
+                        font-weight: 500;
+                        font-size: var(--font-down-1);
+                        line-height: var(--line-height-large);
+                        color: var(--primary-medium);
+                      }
+
+                      .osf-badge::before {
+                        content: "";
+                        background: #25aae2;
+                        flex: 0 0 auto;
+                        width: 0.625rem;
+                        height: 0.625rem;
+                      }
+                    </style>
+
+                    {{#if @controller.model.documents}}
+                      {{#each @controller.model.documents as |document|}}
+                        <div class="osf-topic">
+                          <a href={{document.dc_source}} target="_blank">
+                            <p class="osf-title">{{htmlSafe
+                                document.dc_title
+                              }}</p>
+
+                            <span class="osf-badge"><span
+                                class="badge-category__name"
+                              >{{document.dc_publisher_name}}</span></span>
+                            {{!-- <p class="osf-publisher-name"><b
+                              >{{document.dc_publisher_name}}</b></p> --}}
+                            <p class="osf-description">{{htmlSafe
+                                document.dc_description
+                              }}</p>
+                          </a>
+                        </div>
+                      {{/each}}
                     {{/if}}
                   {{else}}
                     {{#if @controller.searchActive}}
