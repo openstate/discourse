@@ -330,7 +330,7 @@ export default class SearchMenu extends Component {
               ...results.resultTypes,
               {
                 componentName: "search-result-external",
-                results: externalSearchJson["hits"],
+                results: externalSearchJson["hits"].slice(0, 5),
                 type: "topic",
               },
             ];

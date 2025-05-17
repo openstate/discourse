@@ -628,4 +628,29 @@ export default class FullPageSearchController extends Controller {
       });
     }
   }
+
+  @action
+  createTopicForDocument(document) {
+    function slugify(text) {
+      return text
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/[^\w-]+/g, "")
+        .replace(/--+/g, "-")
+        .replace(/^-+/, "")
+        .replace(/-+$/, "");
+    }
+
+    const title = document.dc_title.replace(/<\/?[^>]+(>|$)/g, "");
+    const body =
+      encodeURIComponent(`Beste @${slugify(document.dc_publisher_name)},
+
+Ik heb een vraag over het document: [${title.replace(/[\[\]]/g, "")}](${document.dc_source}).
+
+Mijn vraag is:
+`);
+    window.location.href = `/new-topic?title=${title}&body=${body}`;
+  }
 }

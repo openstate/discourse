@@ -22,30 +22,6 @@ import loadingSpinner from "discourse/helpers/loading-spinner";
 import { i18n } from "discourse-i18n";
 import ComboBox from "select-kit/components/combo-box";
 
-function stringToBrightColor(str) {
-  const colors = [
-    "#FF6347", // Tomato
-    "#FFD700", // Gold
-    "#ADFF2F", // GreenYellow
-    "#00FFFF", // Cyan
-    "#FF00FF", // Magenta
-    "#FFA500", // Orange
-    "#DA70D6", // Orchid
-    "#7CFC00", // LawnGreen
-    "#00BFFF", // DeepSkyBlue
-    "#FF69B4", // HotPink
-  ];
-
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    hash = hash & hash; // Convert to 32bit integer
-  }
-
-  const index = Math.abs(hash) % colors.length;
-  return colors[index];
-}
-
 //todo
 export default RouteTemplate(
   <template>
@@ -371,7 +347,9 @@ export default RouteTemplate(
                       }
 
                       .osf-topic a {
+                        display: block;
                         color: inherit;
+                        margin-bottom: 0.75rem;
                       }
 
                       .osf-publisher-name {
@@ -437,7 +415,19 @@ export default RouteTemplate(
                             <p class="osf-description">{{htmlSafe
                                 document.dc_description
                               }}</p>
+
                           </a>
+
+                          <DButton
+                            @action={{fn
+                              @controller.createTopicForDocument
+                              document
+                            }}
+                            @translatedTitle="Stel je vraag"
+                            @translatedLabel="Stel je vraag"
+                            @icon="plus"
+                            class="btn-primary search-cta"
+                          />
                         </div>
                       {{/each}}
                     {{/if}}
