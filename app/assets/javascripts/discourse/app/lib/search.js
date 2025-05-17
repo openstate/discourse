@@ -43,6 +43,7 @@ export function translateResults(results, opts) {
   results.categories = results.categories || [];
   results.tags = results.tags || [];
   results.groups = results.groups || [];
+  results.documents = results.documents || [];
 
   const topicMap = {};
   results.topics = results.topics.map(function (topic) {
@@ -106,6 +107,15 @@ export function translateResults(results, opts) {
       });
     })
     .compact();
+
+  results.documents = results.documents.map(function (document) {
+    return EmberObject.create({
+      id: document.dc_identifier,
+      dc_title: document.dc_title,
+      dc_description: document.dc_description,
+      dc_publisher_name: document.dc_publisher_name,
+    });
+  });
 
   return translateResultsCallbacks
     .reduce(

@@ -1,5 +1,5 @@
 import Controller, { inject as controller } from "@ember/controller";
-import { action, computed } from "@ember/object";
+import { action, computed, set } from "@ember/object";
 import { gt, or } from "@ember/object/computed";
 import { service } from "@ember/service";
 import { isEmpty } from "@ember/utils";
@@ -433,9 +433,11 @@ export default class FullPageSearchController extends Controller {
           `https://woogle.wooverheid.nl/search?q=${searchTerm}&page=1&country=nl&infobox=true`
         )
           .then((response) => response.json())
-          .then((data) => {
-            const model = data.hits;
-            this.model.set("documents", model);
+          .then(async (data) => {
+            const model =
+              (await translateResults({ documents: data.hits })) || {};
+            this.set("model", model);
+            console.log(this.model);
           })
           .finally(() => {
             this.setProperties({
