@@ -309,7 +309,7 @@ export default class SearchMenu extends Component {
       });
 
       let externalSearch = await fetch(
-        "https://woogle.wooverheid.nl/search?q=klimaat&page=1&country=nl&infobox=true"
+        "https://woogle.wooverheid.nl/search?q=${this.search.activeGlobalSearchTerm}&page=1&country=nl&infobox=true"
       );
       let externalSearchJson = await externalSearch.json();
 
