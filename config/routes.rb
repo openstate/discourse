@@ -1239,6 +1239,7 @@ Discourse::Application.routes.draw do
       end
     end
 
+    get "/post_localizations/:id" => "post_localizations#show"
     post "/post_localizations/create_or_update", to: "post_localizations#create_or_update"
     delete "/post_localizations/destroy", to: "post_localizations#destroy"
 
@@ -1765,8 +1766,6 @@ Discourse::Application.routes.draw do
 
     post "/pageview" => "pageview#index"
 
-    get "*url", to: "permalinks#show", constraints: PermalinkConstraint.new
-
     get "/form-templates/:id" => "form_templates#show"
     get "/form-templates" => "form_templates#index"
 
@@ -1778,5 +1777,8 @@ Discourse::Application.routes.draw do
       get "/test_net_http_timeouts" => "test_requests#test_net_http_timeouts"
       get "/test_net_http_headers" => "test_requests#test_net_http_headers"
     end
+
+    # This catch-all route should always be last
+    get "*url", to: "permalinks#show", constraints: PermalinkConstraint.new
   end
 end

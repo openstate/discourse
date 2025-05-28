@@ -331,7 +331,7 @@ gl:
       one: "Ver %{count} tema novo"
       other: "Ver %{count} temas novos"
     preview: "visualizar"
-    cancel: "cancelar"
+    cancel: "Cancelar"
     save: "Gardar cambios"
     saved: "Gardado!"
     upload: "Cargar"
@@ -3408,12 +3408,9 @@ gl:
         about: "Verbo de"
     discovery:
       headings:
+        multi_tag:
+          default: "Temas etiquetados %{tags}"
         categories: "Todas as categorías"
-        filter_labels:
-          latest: "Últimos"
-          top: "Destacados"
-          new: "Novo"
-          unread: "Pendentes de lectura"
   admin_js:
     settings: "Configuración"
     admin:
@@ -3454,22 +3451,21 @@ gl:
           title: "Ficheiros"
         legal:
           title: "Legal"
-        logo_and_fonts:
-          logo:
-            form:
-              mobile: "Móbil"
-              email: "Enderezo de correo"
-              manifest_screenshots:
-                description: "Capturas de pantalla que presentan as funcionalidades da súa instalación e funcionalidade na páxina de arranque da instalación. Todas as imaxes deberían ser cargas en local e das mesmas dimensións."
-              opengraph_image:
-                description: "Imaxe de gráfico aberto predeterminada que se utiliza cando a páxina non ten ningunha outra imaxe adecuada."
-          fonts:
-            title: "Tipos de letra"
-            form:
-              heading_font:
-                title: "Tipo de letra de título"
-            backfill_modal:
-              modal_yes: "Si"
+        logo:
+          form:
+            mobile: "Móbil"
+            email: "Enderezo de correo"
+            manifest_screenshots:
+              description: "Capturas de pantalla que presentan as funcionalidades da súa instalación e funcionalidade na páxina de arranque da instalación. Todas as imaxes deberían ser cargas en local e das mesmas dimensións."
+            opengraph_image:
+              description: "Imaxe de gráfico aberto predeterminada que se utiliza cando a páxina non ten ningunha outra imaxe adecuada."
+        fonts:
+          title: "Tipos de letra"
+          form:
+            heading_font:
+              title: "Tipo de letra de título"
+          backfill_modal:
+            modal_yes: "Si"
         navigation:
           title: "Navegación"
         notifications:
@@ -3855,6 +3851,8 @@ gl:
         about:
           contact_url_placeholder: "https://johnny-smith.com/contact"
           company_name: "Nome"
+          extra_groups:
+            groups: "Grupos"
           optional: "(opcional)"
           update: "Actualizar"
           saved: "gardado!"
@@ -4148,12 +4146,12 @@ gl:
           all_filter: "Todas"
           active_filter: "Activo"
           inactive_filter: "Inactivo"
-          schema:
-            fields:
-              required: "*obrigatorio"
-              number:
-                too_small: "debe ser igual ou maior que %{count}"
-                too_large: "debe ser igual ou menor que %{count}"
+        schema:
+          fields:
+            required: "*obrigatorio"
+            number:
+              too_small: "debe ser igual ou maior que %{count}"
+              too_large: "debe ser igual ou menor que %{count}"
         colors:
           select_base:
             title: "Seleccionar a paleta de cores básicas"

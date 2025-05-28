@@ -485,7 +485,7 @@ es:
       one: "Ver %{count} tema nuevo"
       other: "Ver %{count} temas nuevos"
     preview: "vista previa"
-    cancel: "cancelar"
+    cancel: "Cancelar"
     deleting: "Eliminando…"
     save: "Guardar cambios"
     saving: "Guardando…"
@@ -4665,6 +4665,9 @@ es:
         forum:
           label: Foro
       back_to_forum: "Volver al Foro"
+      clear_filter: "Limpiar filtro"
+      no_results:
+        title: "No hay resultados"
       collapse_all_sections: "Contraer todas las secciones"
       expand_all_sections: "Expandir todas las secciones"
       search: "Buscar"
@@ -4775,14 +4778,9 @@ es:
     powered_by_discourse: "Desarrollado por Discourse"
     discovery:
       headings:
+        multi_tag:
+          default: "Temas con la etiqueta %{tags}"
         categories: "Todas las categorías"
-        filter_labels:
-          latest: "Recientes"
-          top: "Destacados"
-          new: "Nuevo"
-          unread: "Sin leer"
-          hot: "Caliente"
-          unseen: "No vistos"
   admin_js:
     type_to_filter: "Escribe para filtrar…"
     settings: "Ajustes"
@@ -4842,24 +4840,23 @@ es:
         login_and_authentication:
           title: "Inicio de sesión y autenticación"
           header_description: "Configura cómo se conectan y autentican los usuarios, secretos y claves, proveedores de OAuth2, etc."
-        logo_and_fonts:
-          logo:
-            form:
-              logo:
-                title: "Logotipo principal"
-              mobile: "Móvil"
-              email: "Correo electrónico"
-              manifest_screenshots:
-                description: "Capturas de pantalla para mostrar las funcionalidades del sitio web en la pantalla de instalación. Todas las imágenes deben ser alojadas localmente y tener las mismas dimensiones."
-              opengraph_image:
-                description: "Imagen de gráfico abierto predeterminada, utilizada cuando la página no tiene otra imagen adecuada. Si se deja en blanco, se utilizará large_icon."
-          fonts:
-            title: "Tipos de letra"
-            form:
-              heading_font:
-                title: "Tipo de letra para encabezados"
-            backfill_modal:
-              modal_yes: "Sí"
+        logo:
+          form:
+            logo:
+              title: "Logotipo principal"
+            mobile: "Móvil"
+            email: "Correo electrónico"
+            manifest_screenshots:
+              description: "Capturas de pantalla para mostrar las funcionalidades del sitio web en la pantalla de instalación. Todas las imágenes deben ser alojadas localmente y tener las mismas dimensiones."
+            opengraph_image:
+              description: "Imagen de gráfico abierto predeterminada, utilizada cuando la página no tiene otra imagen adecuada. Si se deja en blanco, se utilizará large_icon."
+        fonts:
+          title: "Tipos de letra"
+          form:
+            heading_font:
+              title: "Tipo de letra para encabezados"
+          backfill_modal:
+            modal_yes: "Sí"
         navigation:
           title: "Navegación"
           header_description: "Configura los enlaces de navegación y los elementos de menú de tu sitio. Esto incluye la ubicación y el comportamiento del menú de navegación principal, los enlaces rápidos de la parte superior de la página de inicio, así como la barra lateral de administración."
@@ -5574,6 +5571,8 @@ es:
           city_for_disputes_placeholder: "Ciudad"
           city_for_disputes_help: |
             Especifica la ciudad para resolver las disputas legales relacionadas con este foro.
+          extra_groups:
+            groups: "Grupos"
           optional: "(opcional)"
           update: "Actualizar"
           toasts:
@@ -5979,30 +5978,30 @@ es:
           active_filter: "Activo"
           inactive_filter: "Inactivo"
           updates_available_filter: "Actualizaciones disponibles"
-          schema:
-            title: "Editar el ajuste de %{name}"
-            back_button: "Volver a %{name}"
-            fields:
-              required: "*obligatorio"
-              groups:
-                at_least:
-                  one: "se requiere al menos %{count} grupo"
-                  other: "se requieren al menos %{count} grupos"
-              categories:
-                at_least:
-                  one: "se requiere al menos %{count} categoría"
-                  other: "se requieren al menos %{count} categorías"
-              tags:
-                at_least:
-                  one: "Se requiere al menos %{count} etiqueta"
-                  other: "se requieren al menos %{count} etiquetas"
-              string:
-                too_short:
-                  one: "debe tener al menos %{count} carácter"
-                  other: "debe tener al menos %{count} caracteres"
-              number:
-                too_small: "debe ser mayor o igual que %{count}"
-                too_large: "debe ser menor o igual que %{count}"
+        schema:
+          title: "Editar el ajuste de %{name}"
+          back_button: "Volver a %{name}"
+          fields:
+            required: "*obligatorio"
+            groups:
+              at_least:
+                one: "se requiere al menos %{count} grupo"
+                other: "se requieren al menos %{count} grupos"
+            categories:
+              at_least:
+                one: "se requiere al menos %{count} categoría"
+                other: "se requieren al menos %{count} categorías"
+            tags:
+              at_least:
+                one: "Se requiere al menos %{count} etiqueta"
+                other: "se requieren al menos %{count} etiquetas"
+            string:
+              too_short:
+                one: "debe tener al menos %{count} carácter"
+                other: "debe tener al menos %{count} caracteres"
+            number:
+              too_small: "debe ser mayor o igual que %{count}"
+              too_large: "debe ser menor o igual que %{count}"
         colors:
           select_base:
             title: "Seleccionar paleta base de color"

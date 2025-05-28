@@ -3651,13 +3651,9 @@ ur:
         about: "بارے میں"
     discovery:
       headings:
+        multi_tag:
+          default: "ٹاپکس %{tags} کے ساتھ ٹَیگ کردہ"
         categories: "تمام زُمرَہ جات"
-        filter_labels:
-          latest: "تازہ ترین"
-          top: "سب سے اوپر"
-          new: "نئی"
-          unread: "بغیر پڑھے"
-          unseen: "ان دیکھا"
   admin_js:
     type_to_filter: "کو فلٹر کرنے کے لیے ٹائپ کریں…"
     settings: "ترتیبات"
@@ -3699,16 +3695,15 @@ ur:
           title: "فائلیں"
         legal:
           title: "قانونی"
-        logo_and_fonts:
-          logo:
-            form:
-              mobile: "موبائل"
-              email: "اِیمیل"
-              manifest_screenshots:
-                description: "اسکرین شاٹس جو اس کے انسٹال پرامپٹ صفحہ پر آپ کی مثال کی خصوصیات اور فعالیت کو ظاہر کرتے ہیں۔ تمام تصاویر مقامی اپ لوڈز اور ایک جیسی ہونی چاہئیں۔"
-          fonts:
-            backfill_modal:
-              modal_yes: "جی ہاں"
+        logo:
+          form:
+            mobile: "موبائل"
+            email: "اِیمیل"
+            manifest_screenshots:
+              description: "اسکرین شاٹس جو اس کے انسٹال پرامپٹ صفحہ پر آپ کی مثال کی خصوصیات اور فعالیت کو ظاہر کرتے ہیں۔ تمام تصاویر مقامی اپ لوڈز اور ایک جیسی ہونی چاہئیں۔"
+        fonts:
+          backfill_modal:
+            modal_yes: "جی ہاں"
         navigation:
           title: "نیویگیشن"
         notifications:
@@ -4115,6 +4110,8 @@ ur:
         about:
           contact_url_placeholder: "https://johnny-smith.com/contact"
           company_name: "نام"
+          extra_groups:
+            groups: "گروپس"
           optional: "(اختیاری)"
           update: "اپ ڈیٹ"
           saved: "محفوظ کر لیا گیا!"
@@ -4407,12 +4404,12 @@ ur:
           all_filter: "تمام"
           active_filter: "فعال"
           inactive_filter: "غیر فعال"
-          schema:
-            fields:
-              required: "*درکار"
-              number:
-                too_small: "%{count}سے بڑا یا اس کے برابر ہونا چاہیے"
-                too_large: "%{count}سے کم یا اس کے برابر ہونا چاہیے"
+        schema:
+          fields:
+            required: "*درکار"
+            number:
+              too_small: "%{count}سے بڑا یا اس کے برابر ہونا چاہیے"
+              too_large: "%{count}سے کم یا اس کے برابر ہونا چاہیے"
         colors:
           select_base:
             title: "بَیس رنگ پیلیٹ منتخب کریں"

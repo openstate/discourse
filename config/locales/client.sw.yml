@@ -263,7 +263,7 @@ sw:
       one: "Angalia Topiki %{count} Mpya"
       other: "Angalia Topiki %{count} Mpya"
     preview: "kihakiki"
-    cancel: "ghairi"
+    cancel: "Ghairi"
     save: "Hifadhi Mabadiliko"
     saved: "Imehifadhiwa!"
     upload: "Pakia"
@@ -2375,12 +2375,9 @@ sw:
         about: "Kuhusu"
     discovery:
       headings:
+        multi_tag:
+          default: "Mada zenye lebo %{tags}"
         categories: "Kategoria Zote"
-        filter_labels:
-          latest: "Hivi Karibuni"
-          top: "Juu"
-          new: "Mpya"
-          unread: "Haijasomwa"
   admin_js:
     settings: "Mipangilio"
     admin:
@@ -2412,14 +2409,13 @@ sw:
           title: "Mafaili"
         legal:
           title: "Halali"
-        logo_and_fonts:
-          logo:
-            form:
-              mobile: "Kifaa cha kiganjani"
-              email: "Barua pepe"
-          fonts:
-            backfill_modal:
-              modal_yes: "Ndio"
+        logo:
+          form:
+            mobile: "Kifaa cha kiganjani"
+            email: "Barua pepe"
+        fonts:
+          backfill_modal:
+            modal_yes: "Ndio"
         navigation:
           title: "Abiri"
         notifications:
@@ -2682,6 +2678,8 @@ sw:
         about:
           contact_url_placeholder: "https://johnny-smith.com/contact"
           company_name: "Jina"
+          extra_groups:
+            groups: "Makundi"
           optional: "(sio muhimu)"
           saved: "imehifadhiwa!"
         flags:
@@ -2874,12 +2872,12 @@ sw:
           all_filter: "Vyote"
           active_filter: "Mara kwa Mara"
           inactive_filter: "Isiyo Amilifu"
-          schema:
-            fields:
-              required: "*muhimu na Inahitajika"
-              number:
-                too_small: "izidi au iwe sawa na %{count}"
-                too_large: "lazima iwe chini ya au sawa na %{count}"
+        schema:
+          fields:
+            required: "*muhimu na Inahitajika"
+            number:
+              too_small: "izidi au iwe sawa na %{count}"
+              too_large: "lazima iwe chini ya au sawa na %{count}"
         colors:
           title: "Rangi"
           copy_name_prefix: "Nakala ya"

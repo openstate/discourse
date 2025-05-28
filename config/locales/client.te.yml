@@ -411,7 +411,7 @@ te:
       one: "%{count} కొత్త విషయం చూడండి"
       other: "%{count} కొత్త విషయాలను చూడండి"
     preview: "ప్రివ్యూ"
-    cancel: "రద్దు చేయండి"
+    cancel: "రద్దుచేయండి"
     deleting: "తొలగించబడుతోంది…"
     save: "మార్పులను సేవ్ చేయండి"
     saving: "సేవ్ చేయబడుతోంది…"
@@ -4276,6 +4276,9 @@ te:
         forum:
           label: ఫోరం
       back_to_forum: "తిరిగి ఫోరమ్కి"
+      clear_filter: "ఫిల్టర్‌ని క్లియర్ చేయండి"
+      no_results:
+        title: "ఫలితాలు లేవు"
       search: "వెతుకు"
       footer:
         interface_color_selector:
@@ -4384,13 +4387,6 @@ te:
     discovery:
       headings:
         categories: "అన్ని వర్గాలు"
-        filter_labels:
-          latest: "తాజా"
-          top: "అగ్ర"
-          new: "కొత్త "
-          unread: "చదవని"
-          hot: "హాట్"
-          unseen: "చూడనవి"
   admin_js:
     type_to_filter: "ఫిల్టర్ చేయడానికి టైప్ చేయండి…"
     settings: "అమరికలు"
@@ -4436,21 +4432,20 @@ te:
           title: "ఫైళ్లు"
         legal:
           title: "చట్టపరమైన"
-        logo_and_fonts:
-          logo:
-            form:
-              logo:
-                title: "ప్రాథమిక లోగో"
-              mobile: "మొబైల్"
-              email: "మెయిల్"
-              manifest_screenshots:
-                description: "దాని ఇన్‌స్టాల్ ప్రాంప్ట్ పేజీలో మీ ఇన్‌స్టాన్స్ ఫీచర్‌లు మరియు ఫంక్షనాలిటీని ప్రదర్శించే స్క్రీన్‌షాట్‌లు. అన్ని చిత్రాలు స్థానిక అప్‌లోడ్‌లు మరియు ఒకే కొలతలు కలిగి ఉండాలి."
-          fonts:
-            form:
-              heading_font:
-                title: "శీర్షిక ఫాంట్"
-            backfill_modal:
-              modal_yes: "అవును"
+        logo:
+          form:
+            logo:
+              title: "ప్రాథమిక లోగో"
+            mobile: "మొబైల్"
+            email: "మెయిల్"
+            manifest_screenshots:
+              description: "దాని ఇన్‌స్టాల్ ప్రాంప్ట్ పేజీలో మీ ఇన్‌స్టాన్స్ ఫీచర్‌లు మరియు ఫంక్షనాలిటీని ప్రదర్శించే స్క్రీన్‌షాట్‌లు. అన్ని చిత్రాలు స్థానిక అప్‌లోడ్‌లు మరియు ఒకే కొలతలు కలిగి ఉండాలి."
+        fonts:
+          form:
+            heading_font:
+              title: "శీర్షిక ఫాంట్"
+          backfill_modal:
+            modal_yes: "అవును"
         navigation:
           title: "నావిగేషన్"
         notifications:
@@ -4973,6 +4968,8 @@ te:
           company_name_placeholder: "ఆక్మే సంస్థ"
           governing_law: "పాలక చట్టం"
           city_for_disputes: "వివాదాలకు నగరం"
+          extra_groups:
+            groups: "సమూహాలు"
           optional: "(ఐచ్ఛికం)"
           update: "నవీకరించండి"
           saved: "సేవ్ చేయబడింది!"
@@ -5315,12 +5312,12 @@ te:
           active_filter: "క్రియాశీల"
           inactive_filter: "నిష్క్రియ"
           updates_available_filter: "అప్‌డేట్‌లు అందుబాటులో ఉన్నాయి"
-          schema:
-            back_button: "తిరిగి %{name}కి"
-            fields:
-              number:
-                too_small: "%{count} కన్నా సమానం లేదా ఎక్కువ ఉండాలి"
-                too_large: "%{count} కన్నా సమానం లేదా తక్కువగా ఉండాలి"
+        schema:
+          back_button: "తిరిగి %{name}కి"
+          fields:
+            number:
+              too_small: "%{count} కన్నా సమానం లేదా ఎక్కువ ఉండాలి"
+              too_large: "%{count} కన్నా సమానం లేదా తక్కువగా ఉండాలి"
         colors:
           select_base:
             title: "బేస్ కలర్ పాలెట్ ఎంచుకోండి"

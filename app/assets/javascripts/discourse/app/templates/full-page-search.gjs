@@ -18,6 +18,7 @@ import bodyClass from "discourse/helpers/body-class";
 import categoryLink from "discourse/helpers/category-link";
 import hideApplicationFooter from "discourse/helpers/hide-application-footer";
 import htmlSafe from "discourse/helpers/html-safe";
+import lazyHash from "discourse/helpers/lazy-hash";
 import loadingSpinner from "discourse/helpers/loading-spinner";
 import { i18n } from "discourse-i18n";
 import ComboBox from "select-kit/components/combo-box";
@@ -35,7 +36,7 @@ export default RouteTemplate(
       <PluginOutlet
         @name="full-page-search-above-search-header"
         @connectorTagName="div"
-        @outletArgs={{hash searchTerm=@controller.searchTerm}}
+        @outletArgs={{lazyHash searchTerm=@controller.searchTerm}}
       />
       <div class="search-header" role="search">
         <h1 class="search-page-heading">
@@ -97,7 +98,7 @@ export default RouteTemplate(
           <div class="search-filters">
             <PluginOutlet
               @name="full-page-search-filters"
-              @outletArgs={{hash
+              @outletArgs={{lazyHash
                 searchTerm=(readonly @controller.searchTerm)
                 onChangeSearchTerm=(fn (mut @controller.searchTerm))
                 search=(fn @controller.search (hash collapseFilters=true))
@@ -136,7 +137,7 @@ export default RouteTemplate(
         <PluginOutlet
           @name="full-page-search-below-search-header"
           @connectorTagName="div"
-          @outletArgs={{hash
+          @outletArgs={{lazyHash
             search=@controller.searchTerm
             type=@controller.search_type
             model=@controller.model
@@ -206,7 +207,7 @@ export default RouteTemplate(
         <PluginOutlet
           @name="full-page-search-below-search-info"
           @connectorTagName="div"
-          @outletArgs={{hash search=@controller.searchTerm}}
+          @outletArgs={{lazyHash search=@controller.searchTerm}}
         />
 
         {{#if @controller.searching}}
@@ -440,7 +441,7 @@ export default RouteTemplate(
               {{/if}}
               <PluginOutlet
                 @name="full-page-search-below-results"
-                @outletArgs={{hash canLoadMore=@controller.canLoadMore}}
+                @outletArgs={{lazyHash canLoadMore=@controller.canLoadMore}}
               />
             </LoadMore>
           </div>
